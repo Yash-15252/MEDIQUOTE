@@ -128,3 +128,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+# Twilio WhatsApp API settings
+TWILIO_ACCOUNT_SID = 'your_account_sid_here'
+TWILIO_AUTH_TOKEN = 'your_auth_token_here'
+TWILIO_WHATSAPP_NUMBER = 'whatsapp:+1234567890'  # Your Twilio WhatsApp number
+NOTIFICATION_PHONE_NUMBERS = ['+1234567890']  # List of phone numbers to notify

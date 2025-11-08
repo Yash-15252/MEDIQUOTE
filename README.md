@@ -35,7 +35,7 @@ MEDIQUOTE is a comprehensive SaaS (Software as a Service) platform designed for 
 - **Competitive Bidding**: Suppliers can submit competitive bids on RFQs
 - **Real-time Dashboard**: Interactive React frontend for bid management
 - **RESTful API**: Full API support for all operations
-- **WhatsApp Alerts**: Integrated notifications for bid updates and RFQ status changes (planned)
+- **WhatsApp Alerts**: Integrated notifications for bid updates and RFQ status changes using Twilio WhatsApp API
 
 ## Tech Stack
 
@@ -58,6 +58,7 @@ MEDIQUOTE is a comprehensive SaaS (Software as a Service) platform designed for 
 - Python 3.11 or higher
 - Node.js 16 or higher
 - npm or yarn
+- Twilio account (for WhatsApp notifications)
 
 ### Installation
 
@@ -90,7 +91,19 @@ MEDIQUOTE is a comprehensive SaaS (Software as a Service) platform designed for 
    npm start
    ```
 
-4. **Access the Application**
+4. **WhatsApp Setup (Optional)**
+   - Sign up for a Twilio account at https://www.twilio.com/
+   - Enable WhatsApp Business API
+   - Update `backend/settings.py` with your Twilio credentials:
+     ```python
+     TWILIO_ACCOUNT_SID = 'your_actual_account_sid'
+     TWILIO_AUTH_TOKEN = 'your_actual_auth_token'
+     TWILIO_WHATSAPP_NUMBER = 'whatsapp:+your_twilio_number'
+     NOTIFICATION_PHONE_NUMBERS = ['+recipient_number_1', '+recipient_number_2']
+     ```
+   - Test the setup by running: `python backend/test_whatsapp.py`
+
+5. **Access the Application**
    - Backend API: http://localhost:8000
    - Frontend: http://localhost:3000
 
