@@ -6,6 +6,7 @@ from quotes import views
 router = routers.DefaultRouter()
 router.register(r'rfq', views.RFQViewSet)
 router.register(r'bids', views.BidViewSet)
+router.register(r'suppliers', views.SupplierViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

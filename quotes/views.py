@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import RFQ, Bid
-from .serializers import RFQSerializer, BidSerializer
+from .models import RFQ, Bid, Supplier
+from .serializers import RFQSerializer, BidSerializer, SupplierSerializer
 
 
 class RFQViewSet(viewsets.ModelViewSet):
@@ -14,3 +14,8 @@ class BidViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Bid.objects.select_related('supplier').all().order_by('-submitted_at')  # ✅ define queryset here
     serializer_class = BidSerializer
+
+
+class SupplierViewSet(viewsets.ModelViewSet):
+    queryset = Supplier.objects.all().order_by('name')
+    serializer_class = SupplierSerializer

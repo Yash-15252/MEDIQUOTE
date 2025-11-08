@@ -4,7 +4,7 @@ from .models import Supplier, RFQ, Bid
 class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
         model = Supplier
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'email', 'phone']
 
 class RFQSerializer(serializers.ModelSerializer):
     class Meta:

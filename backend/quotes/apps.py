@@ -3,7 +3,8 @@ from django.apps import AppConfig
 
 class QuotesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'quotes'
+    name = 'backend.quotes'
+    label = 'quotes'
 
     def ready(self):
-        import quotes.signals  # noqa
+        import backend.quotes.signals  # noqa
