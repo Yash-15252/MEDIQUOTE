@@ -1,6 +1,12 @@
 from django.contrib import admin
 from .models import Supplier, RFQ, Bid
 
+class BidInline(admin.TabularInline):
+    model = Bid
+    extra = 0
+    readonly_fields = ('submitted_at',)
+    fields = ('supplier', 'price', 'submitted_at')
+
 @admin.register(Supplier)
 class SupplierAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone')
@@ -30,6 +36,7 @@ class RFQAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
     )
+    inlines = [BidInline]
 
     def bid_count(self, obj):
         return obj.bids.count()
