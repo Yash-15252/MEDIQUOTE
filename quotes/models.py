@@ -17,7 +17,7 @@ class RFQ(models.Model):
         return f"{self.item} - {self.quantity}"
 
 class Bid(models.Model):
-    rfq = models.ForeignKey(RFQ, on_delete=models.CASCADE)
+    rfq = models.ForeignKey(RFQ, on_delete=models.CASCADE, related_name='bids')
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     submitted_at = models.DateTimeField(auto_now_add=True)
